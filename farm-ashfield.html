@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashfield Organics — Greendle Farms</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: { DEFAULT:'#1C3A1C', light:'#234823', deep:'#142814' },
+            grove:  { DEFAULT:'#2E6B2E', light:'#3C8A3C', dark:'#265426' },
+            sage:   { DEFAULT:'#7EA86B', light:'#A0C490', muted:'#C4D9B8' },
+            fern:   { DEFAULT:'#4D7C3A', light:'#6A9E55' },
+            cream:  { DEFAULT:'#F5EFE0', warm:'#FAF6EC', pure:'#FDFBF5' },
+            amber:  { DEFAULT:'#B97D2A', light:'#D4973E', pale:'#F0DDB0' },
+            bark:   { DEFAULT:'#3D2E1A', light:'#6B5235' },
+          },
+          fontFamily: { display:['Raleway','sans-serif'], body:['Inter','sans-serif'] },
+          boxShadow: {
+            card:  '0 2px 8px rgba(28,58,28,0.06), 0 8px 32px rgba(28,58,28,0.08)',
+            hover: '0 4px 16px rgba(28,58,28,0.10), 0 16px 48px rgba(28,58,28,0.12)',
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background-color:#FDFBF5;color:#1C3A1C;-webkit-font-smoothing:antialiased}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px 200px}
+    .heading-xl{font-family:'Raleway',sans-serif;font-weight:900;letter-spacing:-0.04em;line-height:1.0}
+    .heading-lg{font-family:'Raleway',sans-serif;font-weight:800;letter-spacing:-0.03em;line-height:1.1}
+    .heading-md{font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+    .body-text{font-family:'Inter',sans-serif;font-weight:400;line-height:1.7}
+    .label-text{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;font-size:0.75rem}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background-color:#2E6B2E;color:#FDFBF5;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.01em;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;transition:background-color 0.2s cubic-bezier(0.34,1.56,0.64,1),transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease;box-shadow:0 2px 8px rgba(46,107,46,0.20),0 8px 24px rgba(46,107,46,0.15);text-decoration:none}
+    .btn-primary:hover{background-color:#265426;transform:translateY(-2px);box-shadow:0 4px 16px rgba(46,107,46,0.28),0 16px 40px rgba(46,107,46,0.18)}
+    .btn-primary:active{transform:translateY(0)}
+    .btn-primary:focus-visible{outline:none;box-shadow:0 0 0 3px rgba(126,168,107,0.50)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background-color:transparent;color:#1C3A1C;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.01em;padding:13px 27px;border-radius:100px;border:1.5px solid rgba(28,58,28,0.25);cursor:pointer;transition:border-color 0.2s ease,background-color 0.2s ease,transform 0.2s cubic-bezier(0.34,1.56,0.64,1);text-decoration:none}
+    .btn-secondary:hover{border-color:#2E6B2E;background-color:rgba(46,107,46,0.06);transform:translateY(-2px)}
+    .btn-secondary:active{transform:translateY(0)}
+    .btn-ghost-white{display:inline-flex;align-items:center;gap:8px;background-color:rgba(253,251,245,0.15);color:#FDFBF5;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.01em;padding:13px 27px;border-radius:100px;border:1.5px solid rgba(253,251,245,0.35);cursor:pointer;transition:background-color 0.2s ease,border-color 0.2s ease,transform 0.2s cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;backdrop-filter:blur(8px)}
+    .btn-ghost-white:hover{background-color:rgba(253,251,245,0.25);border-color:rgba(253,251,245,0.60);transform:translateY(-2px)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background-color 0.3s ease,backdrop-filter 0.3s ease,box-shadow 0.3s ease,padding 0.3s ease}
+    nav.scrolled{background-color:rgba(253,251,245,0.92);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(28,58,28,0.08);padding:14px 0}
+    .nav-link{font-family:'Inter',sans-serif;font-weight:500;font-size:0.875rem;color:#FDFBF5;text-decoration:none;transition:opacity 0.2s ease;opacity:0.85}
+    .nav-link:hover{opacity:1}
+    .nav-link.active{opacity:1;position:relative}
+    .nav-link.active::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#7EA86B}
+    nav.scrolled .nav-link{color:#1C3A1C}
+    nav.scrolled .nav-link.active::after{background:#2E6B2E}
+    .badge{display:inline-flex;align-items:center;gap:6px;background-color:rgba(126,168,107,0.18);border:1px solid rgba(126,168,107,0.35);color:#A0C490;padding:6px 14px;border-radius:100px;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-family:'Inter',sans-serif}
+    .badge-dot{width:6px;height:6px;border-radius:50%;background-color:#7EA86B;animation:pulse-dot 2s ease-in-out infinite}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.8)}}
+    .tag{display:inline-block;background-color:rgba(126,168,107,0.15);color:#265426;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;padding:4px 10px;border-radius:100px;border:1px solid rgba(126,168,107,0.25)}
+    .box-card{background-color:#FDFBF5;border-radius:24px;overflow:hidden;border:1px solid rgba(28,58,28,0.08);box-shadow:0 2px 8px rgba(28,58,28,0.05),0 8px 32px rgba(28,58,28,0.06);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease}
+    .box-card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(28,58,28,0.10),0 32px 64px rgba(28,58,28,0.12)}
+    .pillar-card{background-color:#FDFBF5;border:1px solid rgba(28,58,28,0.08);border-radius:20px;padding:36px;transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease;box-shadow:0 2px 8px rgba(28,58,28,0.05),0 8px 24px rgba(28,58,28,0.06)}
+    .pillar-card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(28,58,28,0.10),0 24px 48px rgba(28,58,28,0.10)}
+    .cta-section{background-color:#1C3A1C;background-image:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(46,107,46,0.50) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 20% 30%,rgba(77,124,58,0.35) 0%,transparent 55%);position:relative;overflow:hidden}
+    .cta-section::before{content:'';position:absolute;inset:0;opacity:0.04;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px 200px}
+    footer{background-color:#142814}
+    .leaf-divider{display:flex;align-items:center;gap:12px;color:rgba(28,58,28,0.25)}
+    .leaf-divider::before,.leaf-divider::after{content:'';flex:1;height:1px;background:rgba(28,58,28,0.10)}
+    .farm-story-link{display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-weight:500;font-size:0.825rem;color:#2E6B2E;text-decoration:none;transition:gap 0.2s cubic-bezier(0.34,1.56,0.64,1)}
+    .farm-story-link:hover{gap:10px}
+    .hero-image-wrap{position:absolute;inset:0;overflow:hidden}
+    .hero-image-wrap img{width:100%;height:100%;object-fit:cover;opacity:0.38}
+    .hero-image-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(20,40,20,0.90) 0%,rgba(28,58,28,0.62) 55%,rgba(46,107,46,0.28) 100%)}
+    .hero-image-wrap::before{content:'';position:absolute;inset:0;z-index:1;background:rgba(185,125,42,0.12);mix-blend-mode:multiply}
+    .scroll-indicator{animation:bounce-scroll 2s ease-in-out infinite}
+    @keyframes bounce-scroll{0%,100%{transform:translateY(0);opacity:0.7}50%{transform:translateY(6px);opacity:1}}
+    /* Stat chip */
+    .stat-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(253,251,245,0.12);border:1px solid rgba(253,251,245,0.28);color:#FDFBF5;padding:7px 14px;border-radius:100px;font-family:'Inter',sans-serif;font-weight:500;font-size:0.825rem;backdrop-filter:blur(8px)}
+    /* Method step */
+    .step-card{background:#FDFBF5;border-radius:16px;border:1px solid rgba(28,58,28,0.08);padding:28px 28px 28px 72px;position:relative;box-shadow:0 2px 8px rgba(28,58,28,0.04)}
+    .step-number-bg{font-family:'Raleway',sans-serif;font-weight:900;font-size:4rem;letter-spacing:-0.05em;line-height:1;color:rgba(28,58,28,0.07);position:absolute;top:-8px;left:16px;pointer-events:none}
+    .recipe-card{background-color:#FDFBF5;border-radius:20px;overflow:hidden;border:1px solid rgba(28,58,28,0.08);box-shadow:0 2px 8px rgba(28,58,28,0.04),0 6px 20px rgba(28,58,28,0.06);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease}
+    .recipe-card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(28,58,28,0.10),0 24px 48px rgba(28,58,28,0.10)}
+    .dietary-badge{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;background:#7EA86B;color:#FDFBF5;font-family:'Inter',sans-serif;font-weight:700;font-size:0.65rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(28,58,28,0.20);z-index:2}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2E6B2E,#4D7C3A);display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 2px 8px rgba(46,107,46,0.40);">🌿</div>
+        <span style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.25rem;color:#FDFBF5;letter-spacing:-0.02em;transition:color 0.3s;" class="nav-logo-text">Greendle</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+        <a href="index.html#boxes" class="nav-link">Meal Kits</a>
+        <a href="farms.html" class="nav-link active" aria-current="page">Our Farms</a>
+        <a href="recipes.html" class="nav-link">This Week's Menu</a>
+      </div>
+      <a href="index.html#boxes" class="btn-primary" style="font-size:0.875rem;padding:11px 22px;">Get Started <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+    </div>
+  </nav>
+  <script>
+    const nav=document.getElementById('main-nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);document.querySelector('.nav-logo-text').style.color=window.scrollY>40?'#1C3A1C':'#FDFBF5'});
+  </script>
+
+  <!-- BREADCRUMB -->
+  <div style="background-color:#F5EFE0;padding:0 24px;margin-top:0;padding-top:80px;">
+    <div class="max-w-7xl mx-auto" style="display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(28,58,28,0.08);">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="farms.html" class="farm-story-link" style="font-size:0.85rem;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 7H2M6 3L2 7l4 4"/></svg>
+          Our Farms
+        </a>
+        <span style="color:rgba(28,58,28,0.25);font-size:0.8rem;">·</span>
+        <span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.85rem;color:#1C3A1C;">Ashfield Organics</span>
+      </div>
+      <span style="background:linear-gradient(135deg,#2E6B2E,#4D7C3A);color:#FDFBF5;font-family:'Inter',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px;">Partner Spotlight</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section style="min-height:90vh;background-color:#1C3A1C;background-image:radial-gradient(ellipse 80% 60% at 70% 40%,rgba(46,107,46,0.45) 0%,transparent 60%),radial-gradient(ellipse 50% 70% at 15% 80%,rgba(77,124,58,0.30) 0%,transparent 55%);position:relative;overflow:hidden;display:flex;align-items:center;padding:80px 0;">
+    <div class="hero-image-wrap">
+      <img src="https://picsum.photos/seed/gloucestershirefarm/1920/1080" alt="" />
+    </div>
+    <div style="position:absolute;top:15%;right:8%;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(126,168,107,0.15) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+      <div class="max-w-3xl">
+        <div class="badge mb-6"><span class="badge-dot"></span>Certified Organic · Gloucestershire</div>
+        <h1 class="heading-xl text-white mb-3" style="font-size:clamp(3rem,6vw,5.5rem);">Ashfield<br/><span style="color:#A0C490;">Organics</span></h1>
+        <p class="body-text text-white mb-8" style="font-size:1.125rem;max-width:520px;opacity:0.82;">22 acres of certified organic land in the Cotswold foothills, farmed with care for six generations.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:32px;">
+          <span class="stat-chip">🌱 22 Acres</span>
+          <span class="stat-chip">✓ Certified Organic</span>
+          <span class="stat-chip">📅 Greendle Partner · 6 Years</span>
+          <span class="stat-chip">📍 Gloucestershire</span>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <a href="index.html#boxes" class="btn-primary" style="font-size:1rem;padding:15px 30px;">Get This Week's Box <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+          <a href="recipe-wild-garlic-linguine.html" class="btn-ghost-white" style="font-size:1rem;padding:14px 30px;">Recipes from This Farm</a>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:10;" class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(253,251,245,0.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div style="background:#FDFBF5;border-bottom:1px solid rgba(28,58,28,0.08);padding:32px 0;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div><div class="heading-lg" style="font-size:2.25rem;color:#2E6B2E;">22</div><div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;">Acres of Organic Land</div></div>
+        <div><div class="heading-lg" style="font-size:2.25rem;color:#2E6B2E;">6</div><div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;">Years with Greendle</div></div>
+        <div><div class="heading-lg" style="font-size:2.25rem;color:#2E6B2E;">100%</div><div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;">Harvest to Greendle</div></div>
+        <div><div class="heading-lg" style="font-size:2.25rem;color:#2E6B2E;">4 gen.</div><div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;">Family History on Land</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FARM STORY -->
+  <section style="padding:100px 0;background-color:#FDFBF5;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-5 gap-12 items-start">
+
+        <!-- Image (3/5) -->
+        <div class="md:col-span-3" style="position:relative;">
+          <div style="border-radius:24px;overflow:hidden;">
+            <img src="https://picsum.photos/seed/organicgreensfarm/720/520" alt="Priya and Daniel Nair at Ashfield Organics" style="width:100%;height:520px;object-fit:cover;display:block;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.45) 0%,transparent 55%);"></div>
+            <div style="position:absolute;inset:0;background:rgba(185,125,42,0.12);mix-blend-mode:multiply;"></div>
+          </div>
+          <!-- Floating stat card -->
+          <div style="position:absolute;bottom:-24px;right:-20px;background:#FDFBF5;border-radius:18px;padding:22px 26px;box-shadow:0 4px 16px rgba(28,58,28,0.10),0 16px 40px rgba(28,58,28,0.10);border:1px solid rgba(28,58,28,0.08);min-width:180px;">
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.8rem;color:#1C3A1C;margin-bottom:4px;">Partner Since</div>
+            <div style="font-family:'Raleway',sans-serif;font-weight:900;font-size:2.25rem;color:#2E6B2E;letter-spacing:-0.04em;line-height:1;">2020</div>
+            <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:6px;">6 seasons growing for Greendle</div>
+          </div>
+        </div>
+
+        <!-- Text (2/5) -->
+        <div class="md:col-span-2" style="padding-top:16px;">
+          <div class="label-text mb-5" style="color:#2E6B2E;">Farm Story</div>
+          <blockquote style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1.5rem;color:#1C3A1C;letter-spacing:-0.02em;line-height:1.3;font-style:italic;margin:0 0 20px;">"The day Greendle called, we'd just decided to stop supplying supermarkets. Best timing of our lives."</blockquote>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;color:#2E6B2E;margin-bottom:2px;">Priya &amp; Daniel Nair</div>
+          <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;margin-bottom:28px;">Ashfield Organics · Gloucestershire</div>
+
+          <p class="body-text mb-4" style="color:#6B5235;font-size:0.9375rem;">Priya and Daniel Nair took over the Ashfield plot from Priya's parents in 2016. The land — 22 acres of Cotswold brash and clay loam in the foothills above Stroud — had been farmed by her family since her grandparents arrived from Kerala in the late 1960s. Priya studied agroecology at Bristol; Daniel came from a background in logistics and supply chain.</p>
+          <p class="body-text mb-4" style="color:#6B5235;font-size:0.9375rem;">For four years they sold through a regional wholesaler. The prices were unpredictable, the feedback was zero, and the food was travelling fifty miles in the wrong direction before reaching anyone's plate. In spring 2020, Greendle's sourcing team knocked on their gate during a routine Gloucestershire scouting trip. Priya nearly turned them away. She hadn't heard of us.</p>
+          <p class="body-text mb-6" style="color:#6B5235;font-size:0.9375rem;">Today 100% of Ashfield's harvest goes directly into Greendle subscriber boxes. Priya says it's the first time she's been able to plan more than one season ahead.</p>
+
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;">
+            <span class="tag">Wild Garlic</span><span class="tag">Organic Greens</span><span class="tag">Salad Leaves</span><span class="tag">Certified Organic</span>
+          </div>
+          <a href="#interview" class="btn-secondary">Read Full Interview</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT THEY GROW -->
+  <section style="padding:80px 0;background-color:#F5EFE0;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="label-text mb-4" style="color:#2E6B2E;">What's Growing Now</div>
+        <h2 class="heading-lg" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#1C3A1C;">In season this week</h2>
+        <p class="body-text mt-3" style="color:#6B5235;max-width:440px;margin:12px auto 0;font-size:0.9375rem;">Picked to order, packed within hours. Every item harvested specifically for confirmed Greendle boxes.</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-5">
+
+        <!-- Produce card -->
+        <div style="background:#FDFBF5;border-radius:16px;border:1px solid rgba(28,58,28,0.08);overflow:hidden;box-shadow:0 2px 8px rgba(28,58,28,0.04);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="position:relative;height:100px;overflow:hidden;"><img src="https://picsum.photos/seed/wildgarlicleaves/320/100" alt="Wild Garlic" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.35) 0%,transparent 60%);"></div></div>
+          <div style="padding:16px;">
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.975rem;color:#1C3A1C;margin-bottom:4px;">Wild Garlic Leaves</div>
+            <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;line-height:1.5;margin-bottom:10px;">Hand-picked weekly, March–May only</div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:7px;height:7px;border-radius:50%;background:#2E6B2E;"></div><span style="font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:500;color:#2E6B2E;">In Season Now</span></div>
+          </div>
+        </div>
+
+        <div style="background:#FDFBF5;border-radius:16px;border:1px solid rgba(28,58,28,0.08);overflow:hidden;box-shadow:0 2px 8px rgba(28,58,28,0.04);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="position:relative;height:100px;overflow:hidden;"><img src="https://picsum.photos/seed/nettles/320/100" alt="Young Nettles" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.35) 0%,transparent 60%);"></div></div>
+          <div style="padding:16px;">
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.975rem;color:#1C3A1C;margin-bottom:4px;">Young Nettles</div>
+            <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;line-height:1.5;margin-bottom:10px;">Blanched within hours of picking</div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:7px;height:7px;border-radius:50%;background:#2E6B2E;"></div><span style="font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:500;color:#2E6B2E;">In Season Now</span></div>
+          </div>
+        </div>
+
+        <div style="background:#FDFBF5;border-radius:16px;border:1px solid rgba(28,58,28,0.08);overflow:hidden;box-shadow:0 2px 8px rgba(28,58,28,0.04);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="position:relative;height:100px;overflow:hidden;"><img src="https://picsum.photos/seed/purplebroccolisprouting/320/100" alt="Purple Sprouting Broccoli" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.35) 0%,transparent 60%);"></div></div>
+          <div style="padding:16px;">
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.975rem;color:#1C3A1C;margin-bottom:4px;">Purple Sprouting Broccoli</div>
+            <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;line-height:1.5;margin-bottom:10px;">Cut to order on harvest day</div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:7px;height:7px;border-radius:50%;background:#2E6B2E;"></div><span style="font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:500;color:#2E6B2E;">In Season Now</span></div>
+          </div>
+        </div>
+
+        <div style="background:#FDFBF5;border-radius:16px;border:1px solid rgba(28,58,28,0.08);overflow:hidden;box-shadow:0 2px 8px rgba(28,58,28,0.04);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="position:relative;height:100px;overflow:hidden;"><img src="https://picsum.photos/seed/saladspin/320/100" alt="Mixed Salad Leaves" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.35) 0%,transparent 60%);"></div></div>
+          <div style="padding:16px;">
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.975rem;color:#1C3A1C;margin-bottom:4px;">Mixed Salad Leaves</div>
+            <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;line-height:1.5;margin-bottom:10px;">Five varieties, picked Tuesday AM</div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:7px;height:7px;border-radius:50%;background:#2E6B2E;"></div><span style="font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:500;color:#2E6B2E;">In Season Now</span></div>
+          </div>
+        </div>
+
+        <div style="background:#FDFBF5;border-radius:16px;border:1px solid rgba(28,58,28,0.08);overflow:hidden;box-shadow:0 2px 8px rgba(28,58,28,0.04);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="position:relative;height:100px;overflow:hidden;"><img src="https://picsum.photos/seed/springonions/320/100" alt="Spring Onions" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.35) 0%,transparent 60%);"></div></div>
+          <div style="padding:16px;">
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.975rem;color:#1C3A1C;margin-bottom:4px;">Bunched Spring Onions</div>
+            <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;line-height:1.5;margin-bottom:10px;">Grown under fleece, available year-round</div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:7px;height:7px;border-radius:50%;background:#2E6B2E;"></div><span style="font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:500;color:#2E6B2E;">In Season Now</span></div>
+          </div>
+        </div>
+
+        <div style="background:#FDFBF5;border-radius:16px;border:1px solid rgba(28,58,28,0.08);overflow:hidden;box-shadow:0 2px 8px rgba(28,58,28,0.04);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.transform='translateY(-4px)'" onmouseout="this.style.transform='translateY(0)'">
+          <div style="position:relative;height:100px;overflow:hidden;"><img src="https://picsum.photos/seed/landcress/320/100" alt="Land Cress" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.35) 0%,transparent 60%);"></div></div>
+          <div style="padding:16px;">
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.975rem;color:#1C3A1C;margin-bottom:4px;">Land Cress &amp; Mustard Greens</div>
+            <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;line-height:1.5;margin-bottom:10px;">Peppery, hand-washed, 24hr from field</div>
+            <div style="display:flex;align-items:center;gap:6px;"><div style="width:7px;height:7px;border-radius:50%;background:#D4973E;"></div><span style="font-size:0.7rem;font-family:'Inter',sans-serif;font-weight:500;color:#B97D2A;">Coming April</span></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section style="padding:60px 0;background-color:#FDFBF5;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <div class="label-text mb-3" style="color:#2E6B2E;">Verified Credentials</div>
+        <h2 class="heading-md" style="font-size:1.75rem;color:#1C3A1C;">Certifications &amp; standards</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div class="pillar-card" style="padding:24px;text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(46,107,46,0.10);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 14px;">🌱</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;color:#1C3A1C;margin-bottom:4px;">Soil Association Organic</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;">Certified 2019 · No. SBOR 12847</div>
+        </div>
+        <div class="pillar-card" style="padding:24px;text-align:center;background:linear-gradient(145deg,#2E6B2E,#1C3A1C);border-color:rgba(255,255,255,0.08);">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(253,251,245,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 14px;">✅</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;color:#FDFBF5;margin-bottom:4px;">Greendle Verified Partner</div>
+          <div style="font-size:0.75rem;color:rgba(253,251,245,0.60);font-family:'Inter',sans-serif;">Annually audited since 2020</div>
+        </div>
+        <div class="pillar-card" style="padding:24px;text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(126,168,107,0.12);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 14px;">🏞️</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;color:#1C3A1C;margin-bottom:4px;">Cotswolds AONB Farm</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;">Operates within protected landscape</div>
+        </div>
+        <div class="pillar-card" style="padding:24px;text-align:center;">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(185,125,42,0.10);display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin:0 auto 14px;">🏆</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;color:#1C3A1C;margin-bottom:4px;">GCC Food Champion</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;">Gloucestershire County Council · 2023</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERVIEW PULLQUOTES -->
+  <section id="interview" style="padding:80px 0;background-color:#F5EFE0;">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="label-text mb-3" style="color:#2E6B2E;">In Their Own Words</div>
+        <h2 class="heading-lg" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#1C3A1C;">The Ashfield interview</h2>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <div style="background:#FDFBF5;border-radius:20px;padding:36px;border:1px solid rgba(28,58,28,0.08);border-left:4px solid #2E6B2E;box-shadow:0 2px 8px rgba(28,58,28,0.05);">
+          <div class="label-text mb-3" style="color:#2E6B2E;">Why organic, even when margins are tight?</div>
+          <blockquote style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1.25rem;color:#1C3A1C;letter-spacing:-0.02em;line-height:1.4;font-style:italic;margin:0 0 16px;">"Because non-organic food is borrowing from tomorrow to pay for today. We don't want to borrow. We want to leave more than we found."</blockquote>
+          <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;font-weight:500;">— Priya Nair, March 2026</div>
+        </div>
+
+        <div style="background:#1C3A1C;border-radius:20px;padding:36px;border:1px solid rgba(255,255,255,0.06);border-left:4px solid #7EA86B;">
+          <div class="label-text mb-3" style="color:#A0C490;">What changed when you joined Greendle?</div>
+          <blockquote style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1.25rem;color:#FDFBF5;letter-spacing:-0.02em;line-height:1.4;font-style:italic;margin:0 0 16px;">"The first time a subscriber wrote to us directly — just to say the wild garlic was the best she'd ever tasted — I cried. You don't get that from a supermarket invoice."</blockquote>
+          <div style="font-size:0.8rem;color:rgba(253,251,245,0.55);font-family:'Inter',sans-serif;font-weight:500;">— Daniel Nair, March 2026</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- RECIPES FROM THIS FARM -->
+  <section style="padding:80px 0;background-color:#FDFBF5;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-12">
+        <div class="label-text mb-4" style="color:#2E6B2E;">On the Menu</div>
+        <h2 class="heading-lg" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#1C3A1C;">Recipes featuring Ashfield produce</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-6">
+
+        <div class="recipe-card" style="border-radius:24px;">
+          <div style="position:relative;height:260px;">
+            <img src="https://picsum.photos/seed/pastaspring/640/260" alt="Wild Garlic Linguine" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.60) 0%,transparent 55%);"></div>
+            <div class="dietary-badge">V</div>
+            <div style="position:absolute;bottom:16px;left:20px;">
+              <span style="background:linear-gradient(135deg,rgba(212,151,62,0.95),rgba(185,125,42,0.95));color:#FDFBF5;font-family:'Raleway',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px;">✦ Chef's Pick</span>
+            </div>
+          </div>
+          <div style="padding:28px;">
+            <div style="font-size:0.775rem;color:#2E6B2E;font-family:'Inter',sans-serif;font-weight:500;margin-bottom:8px;">40 min · Serves 2–4 · Vegetarian</div>
+            <div class="heading-md mb-3" style="font-size:1.25rem;color:#1C3A1C;">Wild Garlic &amp; Nettle Linguine with Toasted Hazelnuts</div>
+            <p style="font-size:0.875rem;color:#6B5235;font-family:'Inter',sans-serif;line-height:1.6;margin-bottom:20px;">A stunning spring pasta using freshly picked wild garlic leaves and blanched nettle tips, finished with crushed Kentish hazelnuts and aged parmesan.</p>
+            <a href="recipe-wild-garlic-linguine.html" class="btn-primary" style="font-size:0.875rem;">Cook This Recipe <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+          </div>
+        </div>
+
+        <div class="recipe-card" style="border-radius:24px;">
+          <div style="position:relative;height:260px;">
+            <img src="https://picsum.photos/seed/greensaladbow/640/260" alt="Ashfield Green Salad" style="width:100%;height:100%;object-fit:cover;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.60) 0%,transparent 55%);"></div>
+            <div class="dietary-badge" style="background:#7EA86B;">VG</div>
+          </div>
+          <div style="padding:28px;">
+            <div style="font-size:0.775rem;color:#2E6B2E;font-family:'Inter',sans-serif;font-weight:500;margin-bottom:8px;">10 min · Serves 2 · Vegan</div>
+            <div class="heading-md mb-3" style="font-size:1.25rem;color:#1C3A1C;">Ashfield Green Salad with Hazelnut Dressing</div>
+            <p style="font-size:0.875rem;color:#6B5235;font-family:'Inter',sans-serif;line-height:1.6;margin-bottom:20px;">Five seasonal leaf varieties from Ashfield, dressed with a toasted hazelnut and lemon vinaigrette. Simple, fast, and impossible to replicate with supermarket leaves.</p>
+            <a href="recipes.html" class="btn-secondary" style="font-size:0.875rem;">Browse All Recipes</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" style="padding:80px 0;">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="label-text mb-4" style="color:#A0C490;">Support Real Farmers</div>
+      <h2 class="heading-lg text-white mb-5" style="font-size:clamp(2rem,4vw,3.25rem);">Every box goes directly back to farms like Ashfield.</h2>
+      <p class="body-text mb-10" style="color:rgba(253,251,245,0.75);max-width:460px;margin:0 auto 40px;">No middlemen. No anonymous warehouses. Your subscription funds the next season's seeds.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+        <a href="index.html#boxes" class="btn-primary" style="font-size:1rem;padding:15px 30px;">Choose Your Box <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+        <a href="farms.html" class="btn-ghost-white" style="font-size:1rem;padding:14px 30px;">Meet More Farms</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:64px 0 40px;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(253,251,245,0.08);">
+        <div class="md:col-span-2">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2E6B2E,#4D7C3A);display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🌿</div>
+            <span style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.25rem;color:#FDFBF5;letter-spacing:-0.02em;">Greendle</span>
+          </div>
+          <p class="body-text mb-6" style="color:rgba(253,251,245,0.50);font-size:0.9rem;max-width:280px;">Farm-to-door meal kits and groceries. Zero waste. Locally sourced. Carbon-neutral delivery.</p>
+          <div style="display:flex;gap:12px;">
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(253,251,245,0.08);border:1px solid rgba(253,251,245,0.10);display:flex;align-items:center;justify-content:center;font-size:0.875rem;text-decoration:none;" onmouseover="this.style.background='rgba(253,251,245,0.14)'" onmouseout="this.style.background='rgba(253,251,245,0.08)'">📘</a>
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(253,251,245,0.08);border:1px solid rgba(253,251,245,0.10);display:flex;align-items:center;justify-content:center;font-size:0.875rem;text-decoration:none;" onmouseover="this.style.background='rgba(253,251,245,0.14)'" onmouseout="this.style.background='rgba(253,251,245,0.08)'">📸</a>
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(253,251,245,0.08);border:1px solid rgba(253,251,245,0.10);display:flex;align-items:center;justify-content:center;font-size:0.875rem;text-decoration:none;" onmouseover="this.style.background='rgba(253,251,245,0.14)'" onmouseout="this.style.background='rgba(253,251,245,0.08)'">🐦</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.875rem;color:#FDFBF5;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase;">Company</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">About Us</a></li>
+            <li><a href="farms.html" style="font-size:0.875rem;color:#A0C490;text-decoration:none;font-family:'Inter',sans-serif;font-weight:500;">Our Farms</a></li>
+            <li><a href="recipes.html" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">This Week's Menu</a></li>
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Impact Report</a></li>
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Careers</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.875rem;color:#FDFBF5;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase;">Support</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Help Centre</a></li>
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Delivery Areas</a></li>
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:28px;">
+        <p style="font-size:0.8rem;color:rgba(253,251,245,0.30);font-family:'Inter',sans-serif;">© 2026 Greendle Ltd. Registered in England &amp; Wales. B-Corp Certified.</p>
+        <span style="font-size:0.8rem;color:rgba(253,251,245,0.30);font-family:'Inter',sans-serif;">🌱 Carbon neutral since 2023</span>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

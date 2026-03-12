@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wild Garlic & Nettle Linguine — Greendle Recipes</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            forest: { DEFAULT:'#1C3A1C', light:'#234823', deep:'#142814' },
+            grove:  { DEFAULT:'#2E6B2E', light:'#3C8A3C', dark:'#265426' },
+            sage:   { DEFAULT:'#7EA86B', light:'#A0C490', muted:'#C4D9B8' },
+            fern:   { DEFAULT:'#4D7C3A', light:'#6A9E55' },
+            cream:  { DEFAULT:'#F5EFE0', warm:'#FAF6EC', pure:'#FDFBF5' },
+            amber:  { DEFAULT:'#B97D2A', light:'#D4973E', pale:'#F0DDB0' },
+            bark:   { DEFAULT:'#3D2E1A', light:'#6B5235' },
+          },
+          fontFamily: { display:['Raleway','sans-serif'], body:['Inter','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <style>
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{font-family:'Inter',sans-serif;background-color:#FDFBF5;color:#1C3A1C;-webkit-font-smoothing:antialiased}
+    body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px 200px}
+    .heading-xl{font-family:'Raleway',sans-serif;font-weight:900;letter-spacing:-0.04em;line-height:1.0}
+    .heading-lg{font-family:'Raleway',sans-serif;font-weight:800;letter-spacing:-0.03em;line-height:1.1}
+    .heading-md{font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.02em;line-height:1.2}
+    .body-text{font-family:'Inter',sans-serif;font-weight:400;line-height:1.7}
+    .label-text{font-family:'Inter',sans-serif;font-weight:600;letter-spacing:0.10em;text-transform:uppercase;font-size:0.75rem}
+    .btn-primary{display:inline-flex;align-items:center;gap:8px;background-color:#2E6B2E;color:#FDFBF5;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.01em;padding:14px 28px;border-radius:100px;border:none;cursor:pointer;transition:background-color 0.2s cubic-bezier(0.34,1.56,0.64,1),transform 0.2s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.2s ease;box-shadow:0 2px 8px rgba(46,107,46,0.20),0 8px 24px rgba(46,107,46,0.15);text-decoration:none}
+    .btn-primary:hover{background-color:#265426;transform:translateY(-2px)}
+    .btn-primary:active{transform:translateY(0)}
+    .btn-secondary{display:inline-flex;align-items:center;gap:8px;background-color:transparent;color:#1C3A1C;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.01em;padding:13px 27px;border-radius:100px;border:1.5px solid rgba(28,58,28,0.25);cursor:pointer;transition:border-color 0.2s ease,background-color 0.2s ease,transform 0.2s cubic-bezier(0.34,1.56,0.64,1);text-decoration:none}
+    .btn-secondary:hover{border-color:#2E6B2E;background-color:rgba(46,107,46,0.06);transform:translateY(-2px)}
+    .btn-ghost-white{display:inline-flex;align-items:center;gap:8px;background-color:rgba(253,251,245,0.15);color:#FDFBF5;font-family:'Raleway',sans-serif;font-weight:700;letter-spacing:-0.01em;padding:13px 27px;border-radius:100px;border:1.5px solid rgba(253,251,245,0.35);cursor:pointer;transition:background-color 0.2s ease,border-color 0.2s ease,transform 0.2s cubic-bezier(0.34,1.56,0.64,1);text-decoration:none;backdrop-filter:blur(8px)}
+    .btn-ghost-white:hover{background-color:rgba(253,251,245,0.25);border-color:rgba(253,251,245,0.60);transform:translateY(-2px)}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;transition:background-color 0.3s ease,backdrop-filter 0.3s ease,box-shadow 0.3s ease,padding 0.3s ease}
+    nav.scrolled{background-color:rgba(253,251,245,0.92);backdrop-filter:blur(16px);box-shadow:0 1px 0 rgba(28,58,28,0.08);padding:14px 0}
+    .nav-link{font-family:'Inter',sans-serif;font-weight:500;font-size:0.875rem;color:#FDFBF5;text-decoration:none;transition:opacity 0.2s ease;opacity:0.85}
+    .nav-link:hover{opacity:1}
+    .nav-link.active{opacity:1;position:relative}
+    .nav-link.active::after{content:'';position:absolute;bottom:-6px;left:50%;transform:translateX(-50%);width:5px;height:5px;border-radius:50%;background:#7EA86B}
+    nav.scrolled .nav-link{color:#1C3A1C}
+    nav.scrolled .nav-link.active::after{background:#2E6B2E}
+    .badge{display:inline-flex;align-items:center;gap:6px;background-color:rgba(126,168,107,0.18);border:1px solid rgba(126,168,107,0.35);color:#A0C490;padding:6px 14px;border-radius:100px;font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;font-family:'Inter',sans-serif}
+    .badge-dot{width:6px;height:6px;border-radius:50%;background-color:#7EA86B;animation:pulse-dot 2s ease-in-out infinite}
+    @keyframes pulse-dot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.6;transform:scale(0.8)}}
+    .tag{display:inline-block;background-color:rgba(126,168,107,0.15);color:#265426;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;padding:4px 10px;border-radius:100px;border:1px solid rgba(126,168,107,0.25)}
+    .box-card{background-color:#FDFBF5;border-radius:24px;overflow:hidden;border:1px solid rgba(28,58,28,0.08);box-shadow:0 2px 8px rgba(28,58,28,0.05),0 8px 32px rgba(28,58,28,0.06);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease}
+    .box-card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(28,58,28,0.10),0 32px 64px rgba(28,58,28,0.12)}
+    .cta-section{background-color:#1C3A1C;background-image:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(46,107,46,0.50) 0%,transparent 60%),radial-gradient(ellipse 50% 60% at 20% 30%,rgba(77,124,58,0.35) 0%,transparent 55%);position:relative;overflow:hidden}
+    .cta-section::before{content:'';position:absolute;inset:0;opacity:0.04;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");background-size:200px 200px}
+    footer{background-color:#142814}
+    .farm-story-link{display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-weight:500;font-size:0.825rem;color:#2E6B2E;text-decoration:none;transition:gap 0.2s cubic-bezier(0.34,1.56,0.64,1)}
+    .farm-story-link:hover{gap:10px}
+    .hero-image-wrap{position:absolute;inset:0;overflow:hidden}
+    .hero-image-wrap img{width:100%;height:100%;object-fit:cover;opacity:0.38}
+    .hero-image-wrap::after{content:'';position:absolute;inset:0;background:linear-gradient(150deg,rgba(20,30,15,0.92) 0%,rgba(28,58,28,0.65) 55%,rgba(185,125,42,0.20) 100%)}
+    .hero-image-wrap::before{content:'';position:absolute;inset:0;z-index:1;background:rgba(28,58,28,0.15);mix-blend-mode:multiply}
+    .scroll-indicator{animation:bounce-scroll 2s ease-in-out infinite}
+    @keyframes bounce-scroll{0%,100%{transform:translateY(0);opacity:0.7}50%{transform:translateY(6px);opacity:1}}
+    .stat-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(253,251,245,0.12);border:1px solid rgba(253,251,245,0.28);color:#FDFBF5;padding:7px 14px;border-radius:100px;font-family:'Inter',sans-serif;font-weight:500;font-size:0.825rem;backdrop-filter:blur(8px)}
+    /* Method step */
+    .step-card{background:#FDFBF5;border-radius:16px;border:1px solid rgba(28,58,28,0.08);padding:28px 28px 28px 76px;position:relative;box-shadow:0 2px 8px rgba(28,58,28,0.04),0 4px 16px rgba(28,58,28,0.04)}
+    .step-num-bg{font-family:'Raleway',sans-serif;font-weight:900;font-size:4rem;letter-spacing:-0.05em;line-height:1;color:rgba(28,58,28,0.07);position:absolute;top:12px;left:14px;pointer-events:none;user-select:none}
+    /* Recipe card */
+    .recipe-card{background-color:#FDFBF5;border-radius:20px;overflow:hidden;border:1px solid rgba(28,58,28,0.08);box-shadow:0 2px 8px rgba(28,58,28,0.04),0 6px 20px rgba(28,58,28,0.06);transition:transform 0.3s cubic-bezier(0.34,1.56,0.64,1),box-shadow 0.3s ease}
+    .recipe-card:hover{transform:translateY(-6px);box-shadow:0 8px 24px rgba(28,58,28,0.10),0 24px 48px rgba(28,58,28,0.10)}
+    .dietary-badge{position:absolute;top:12px;right:12px;width:28px;height:28px;border-radius:50%;background:#7EA86B;color:#FDFBF5;font-family:'Inter',sans-serif;font-weight:700;font-size:0.65rem;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(28,58,28,0.20);z-index:2}
+    /* Ingredient list */
+    .ingredient-row{display:flex;align-items:baseline;gap:10px;padding:8px 0;border-bottom:1px solid rgba(28,58,28,0.06)}
+    .ingredient-row:last-child{border-bottom:none}
+    .ingredient-qty{font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;color:#1C3A1C;min-width:60px}
+    .ingredient-item{font-family:'Inter',sans-serif;font-weight:400;font-size:0.875rem;color:#6B5235;line-height:1.4}
+    /* Serves toggle */
+    .serves-btn{padding:6px 14px;border-radius:100px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.775rem;cursor:pointer;transition:all 0.2s ease;border:1.5px solid rgba(46,107,46,0.25);color:#6B5235;background:transparent}
+    .serves-btn.active{background:#2E6B2E;color:#FDFBF5;border-color:#2E6B2E}
+    .serves-btn:hover:not(.active){background:rgba(46,107,46,0.06)}
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="main-nav">
+    <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <a href="index.html" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2E6B2E,#4D7C3A);display:flex;align-items:center;justify-content:center;font-size:1.1rem;box-shadow:0 2px 8px rgba(46,107,46,0.40);">🌿</div>
+        <span style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.25rem;color:#FDFBF5;letter-spacing:-0.02em;transition:color 0.3s;" class="nav-logo-text">Greendle</span>
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+        <a href="index.html#boxes" class="nav-link">Meal Kits</a>
+        <a href="farms.html" class="nav-link">Our Farms</a>
+        <a href="recipes.html" class="nav-link active" aria-current="page">This Week's Menu</a>
+      </div>
+      <a href="index.html#boxes" class="btn-primary" style="font-size:0.875rem;padding:11px 22px;">Get Started <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+    </div>
+  </nav>
+  <script>
+    const nav=document.getElementById('main-nav');
+    window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>40);document.querySelector('.nav-logo-text').style.color=window.scrollY>40?'#1C3A1C':'#FDFBF5'});
+  </script>
+
+  <!-- BREADCRUMB -->
+  <div style="background-color:#F5EFE0;padding-top:80px;">
+    <div class="max-w-7xl mx-auto px-6" style="display:flex;align-items:center;justify-content:space-between;padding-top:14px;padding-bottom:14px;border-bottom:1px solid rgba(28,58,28,0.08);">
+      <div style="display:flex;align-items:center;gap:10px;">
+        <a href="recipes.html" class="farm-story-link" style="font-size:0.85rem;">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 7H2M6 3L2 7l4 4"/></svg>
+          This Week's Menu
+        </a>
+        <span style="color:rgba(28,58,28,0.25);font-size:0.8rem;">·</span>
+        <span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.85rem;color:#1C3A1C;">Wild Garlic &amp; Nettle Linguine</span>
+      </div>
+      <span style="background:linear-gradient(135deg,rgba(212,151,62,0.95),rgba(185,125,42,0.95));color:#FDFBF5;font-family:'Inter',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;padding:5px 12px;border-radius:100px;">✦ Chef's Pick · Spring</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section style="min-height:88vh;background-color:#1C3A1C;background-image:radial-gradient(ellipse 75% 65% at 65% 35%,rgba(46,107,46,0.45) 0%,transparent 60%),radial-gradient(ellipse 50% 45% at 90% 20%,rgba(185,125,42,0.18) 0%,transparent 50%);position:relative;overflow:hidden;display:flex;align-items:center;padding:80px 0;">
+    <div class="hero-image-wrap">
+      <img src="https://picsum.photos/seed/pastaspring/1920/1080" alt="" />
+    </div>
+    <div style="position:absolute;top:18%;right:6%;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(185,125,42,0.14) 0%,transparent 70%);pointer-events:none;"></div>
+    <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+      <div class="max-w-3xl">
+        <div class="badge mb-6"><span class="badge-dot"></span>Chef's Pick · Week of 9–15 March 2026</div>
+        <h1 class="heading-xl text-white mb-2" style="font-size:clamp(2.75rem,5.5vw,5rem);">Wild Garlic &amp;<br/><span style="color:#D4973E;">Nettle Linguine</span></h1>
+        <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1.375rem;color:#A0C490;margin-bottom:28px;letter-spacing:-0.01em;">with Toasted Hazelnuts</div>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px;">
+          <span class="stat-chip">⏱ 40 min total</span>
+          <span class="stat-chip">👥 Serves 2–4</span>
+          <span class="stat-chip">🌱 Vegetarian</span>
+          <span class="stat-chip">📦 Grove Box</span>
+        </div>
+        <div style="font-family:'Inter',sans-serif;font-weight:500;font-size:0.825rem;color:rgba(253,251,245,0.65);margin-bottom:32px;display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+          🌿 Wild garlic &amp; nettles:
+          <a href="farm-ashfield.html" style="color:#A0C490;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">Ashfield Organics, Gloucestershire</a>
+          · Pasta: Bakers Mill, North Yorkshire
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:14px;">
+          <a href="#method" class="btn-primary" style="font-size:1rem;padding:15px 30px;">View Full Recipe <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+          <a href="index.html#boxes" class="btn-ghost-white" style="font-size:1rem;padding:14px 30px;">Get This Week's Box</a>
+        </div>
+      </div>
+    </div>
+    <div style="position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:10;" class="scroll-indicator">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="rgba(253,251,245,0.45)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- RECIPE META BAR -->
+  <div style="background:#FDFBF5;border-bottom:1px solid rgba(28,58,28,0.08);padding:32px 0;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-3 md:grid-cols-6 gap-6 text-center">
+        <div>
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(46,107,46,0.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin:0 auto 8px;">⏱</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1rem;color:#2E6B2E;">15 min</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:2px;">Prep time</div>
+        </div>
+        <div>
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(46,107,46,0.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin:0 auto 8px;">🔥</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1rem;color:#2E6B2E;">25 min</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:2px;">Cook time</div>
+        </div>
+        <div>
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(46,107,46,0.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin:0 auto 8px;">👥</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1rem;color:#2E6B2E;">2–4</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:2px;">Serves</div>
+        </div>
+        <div>
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(46,107,46,0.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin:0 auto 8px;">📊</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1rem;color:#2E6B2E;">Easy</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:2px;">Difficulty</div>
+        </div>
+        <div>
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(46,107,46,0.08);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin:0 auto 8px;">🌱</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1rem;color:#2E6B2E;">Vegetarian</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:2px;">Dietary</div>
+        </div>
+        <div>
+          <div style="width:44px;height:44px;border-radius:12px;background:rgba(185,125,42,0.10);display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin:0 auto 8px;">⚡</div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:1rem;color:#B97D2A;">480 kcal</div>
+          <div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:2px;">Per serving</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INGREDIENTS + HERO IMAGE -->
+  <section style="padding:100px 0;background-color:#F5EFE0;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-5 gap-12 items-start">
+
+        <!-- Image (3/5) -->
+        <div class="md:col-span-3" style="position:relative;">
+          <div style="border-radius:24px;overflow:hidden;position:relative;">
+            <img src="https://picsum.photos/seed/pastaspring/720/520" alt="Wild Garlic &amp; Nettle Linguine" style="width:100%;height:520px;object-fit:cover;display:block;" />
+            <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.40) 0%,transparent 55%);"></div>
+            <div style="position:absolute;inset:0;background:rgba(185,125,42,0.10);mix-blend-mode:multiply;"></div>
+            <div style="position:absolute;bottom:20px;left:20px;">
+              <span style="background:linear-gradient(135deg,rgba(212,151,62,0.95),rgba(185,125,42,0.95));color:#FDFBF5;font-family:'Raleway',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.06em;text-transform:uppercase;padding:7px 14px;border-radius:100px;">✦ Chef's Pick · Spring</span>
+            </div>
+          </div>
+          <!-- Tags below image -->
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px;">
+            <span class="tag">Vegetarian</span>
+            <span class="tag">Spring Special</span>
+            <span class="tag">30–40 min</span>
+            <span class="tag">Grove Box</span>
+            <span style="display:inline-block;background:rgba(185,125,42,0.12);color:#B97D2A;font-size:0.75rem;font-weight:600;letter-spacing:0.04em;padding:4px 10px;border-radius:100px;border:1px solid rgba(185,125,42,0.22);">🌿 Ashfield Organics</span>
+          </div>
+        </div>
+
+        <!-- Ingredients (2/5) -->
+        <div class="md:col-span-2">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;">
+            <div class="label-text" style="color:#2E6B2E;">Ingredients</div>
+            <!-- Serves toggle -->
+            <div style="display:flex;gap:6px;align-items:center;">
+              <span style="font-size:0.775rem;color:#6B5235;font-family:'Inter',sans-serif;margin-right:4px;">Serves:</span>
+              <button class="serves-btn active" onclick="setServes(this)">2</button>
+              <button class="serves-btn" onclick="setServes(this)">4</button>
+            </div>
+          </div>
+
+          <!-- Group 1: Pasta & base -->
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.825rem;color:#1C3A1C;margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid rgba(46,107,46,0.15);">Pasta &amp; base</div>
+          <div style="margin-bottom:20px;">
+            <div class="ingredient-row"><span class="ingredient-qty">200g</span><span class="ingredient-item">dried linguine (Bakers Mill heritage wheat)</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">60g</span><span class="ingredient-item">fresh wild garlic leaves, washed</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">60g</span><span class="ingredient-item">young nettles, tips only, washed</span></div>
+          </div>
+
+          <!-- Divider -->
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;color:rgba(28,58,28,0.20);">
+            <div style="flex:1;height:1px;background:rgba(28,58,28,0.08);"></div>
+            <span style="font-size:0.6rem;">🍃</span>
+            <div style="flex:1;height:1px;background:rgba(28,58,28,0.08);"></div>
+          </div>
+
+          <!-- Group 2: Sauce & finish -->
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.825rem;color:#1C3A1C;margin-bottom:8px;padding-bottom:6px;border-bottom:2px solid rgba(46,107,46,0.15);">Sauce &amp; finish</div>
+          <div style="margin-bottom:24px;">
+            <div class="ingredient-row"><span class="ingredient-qty">3 tbsp</span><span class="ingredient-item">extra-virgin olive oil</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">2</span><span class="ingredient-item">shallots, finely sliced</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">2 cloves</span><span class="ingredient-item">garlic, minced</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">1</span><span class="ingredient-item">unwaxed lemon, zest and juice</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">40g</span><span class="ingredient-item">Parmesan (or vegetarian hard cheese), finely grated</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">30g</span><span class="ingredient-item">whole hazelnuts, skin-on</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">—</span><span class="ingredient-item">Flaky sea salt &amp; black pepper</span></div>
+            <div class="ingredient-row"><span class="ingredient-qty">handful</span><span class="ingredient-item">flat-leaf parsley, to finish</span></div>
+          </div>
+
+          <div style="background:rgba(46,107,46,0.07);border-radius:12px;padding:14px 16px;border:1px solid rgba(46,107,46,0.12);">
+            <div style="font-family:'Inter',sans-serif;font-weight:600;font-size:0.775rem;color:#265426;display:flex;align-items:center;gap:6px;"><span>💡</span> Scale tip</div>
+            <div style="font-size:0.8rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;line-height:1.5;">All quantities above are for 2 servings. Simply double everything for 4 — cooking time stays the same.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- METHOD -->
+  <section id="method" style="padding:80px 0;background-color:#FDFBF5;">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-14">
+        <div class="label-text mb-4" style="color:#2E6B2E;">Step by Step</div>
+        <h2 class="heading-lg" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#1C3A1C;">Method</h2>
+      </div>
+
+      <!-- Connector line + steps -->
+      <div style="position:relative;">
+        <div style="position:absolute;left:18px;top:24px;bottom:24px;width:2px;background:linear-gradient(to bottom,rgba(46,107,46,0.20),rgba(46,107,46,0.08));border-radius:2px;" class="hidden md:block"></div>
+        <div style="display:flex;flex-direction:column;gap:16px;">
+
+          <div class="step-card">
+            <span class="step-num-bg">01</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#2E6B2E;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.7rem;color:#FDFBF5;">01</span></div>
+              <div class="heading-md" style="font-size:1rem;color:#1C3A1C;">Toast the hazelnuts</div>
+              <span class="tag" style="font-size:0.7rem;padding:3px 8px;margin-left:auto;">5 min</span>
+            </div>
+            <p class="body-text" style="color:#6B5235;font-size:0.9rem;">Place the hazelnuts in a dry frying pan over medium heat. Toast, tossing frequently, for 4–5 minutes until golden and fragrant. Tip onto a board, allow to cool slightly, then roughly crush with the flat of a knife. Set aside.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num-bg">02</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#2E6B2E;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.7rem;color:#FDFBF5;">02</span></div>
+              <div class="heading-md" style="font-size:1rem;color:#1C3A1C;">Blanch the nettles</div>
+              <span class="tag" style="font-size:0.7rem;padding:3px 8px;margin-left:auto;">3 min</span>
+            </div>
+            <p class="body-text" style="color:#6B5235;font-size:0.9rem;">Fill a large pot with well-salted water and bring to a rolling boil. Drop the nettle tips in for exactly 30 seconds — this neutralises the sting. Remove with a slotted spoon into iced water. Squeeze out excess water, roughly chop. <strong style="color:#1C3A1C;font-weight:600;">Keep the boiling water for your pasta.</strong></p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num-bg">03</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#2E6B2E;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.7rem;color:#FDFBF5;">03</span></div>
+              <div class="heading-md" style="font-size:1rem;color:#1C3A1C;">Wilt the wild garlic</div>
+              <span class="tag" style="font-size:0.7rem;padding:3px 8px;margin-left:auto;">4 min</span>
+            </div>
+            <p class="body-text" style="color:#6B5235;font-size:0.9rem;">Heat 1 tbsp olive oil in a wide sauté pan over medium-low heat. Add the shallots and a pinch of salt. Cook gently for 3–4 minutes until softened but not coloured. Add the minced garlic for 1 minute. Add the wild garlic leaves and toss until just wilted — 60 to 90 seconds. Remove from heat.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num-bg">04</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#2E6B2E;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.7rem;color:#FDFBF5;">04</span></div>
+              <div class="heading-md" style="font-size:1rem;color:#1C3A1C;">Cook the linguine</div>
+              <span class="tag" style="font-size:0.7rem;padding:3px 8px;margin-left:auto;">9–11 min</span>
+            </div>
+            <p class="body-text" style="color:#6B5235;font-size:0.9rem;">Add the linguine to the boiling water. Cook according to packet instructions <em>minus 1 minute</em> — it will finish in the pan. <strong style="color:#1C3A1C;font-weight:600;">Reserve 150ml of pasta water before draining.</strong> This starchy liquid is your secret sauce.</p>
+          </div>
+
+          <div class="step-card">
+            <span class="step-num-bg">05</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#2E6B2E;display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.7rem;color:#FDFBF5;">05</span></div>
+              <div class="heading-md" style="font-size:1rem;color:#1C3A1C;">Bring it together</div>
+              <span class="tag" style="font-size:0.7rem;padding:3px 8px;margin-left:auto;">4 min</span>
+            </div>
+            <p class="body-text" style="color:#6B5235;font-size:0.9rem;">Return the wild garlic pan to low heat. Add the drained linguine, chopped nettles, remaining olive oil, and a splash of pasta water. Toss vigorously for 2 minutes, adding more pasta water as needed for a silky, emulsified sauce. Add lemon zest, a squeeze of lemon juice, and half the Parmesan. Toss again.</p>
+          </div>
+
+          <div class="step-card" style="border:2px solid rgba(212,151,62,0.25);background:rgba(240,221,176,0.15);">
+            <span class="step-num-bg" style="color:rgba(185,125,42,0.10);">06</span>
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#D4973E,#B97D2A);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.7rem;color:#FDFBF5;">06</span></div>
+              <div class="heading-md" style="font-size:1rem;color:#1C3A1C;">Plate and finish</div>
+              <span style="display:inline-block;background:rgba(185,125,42,0.12);color:#B97D2A;font-size:0.7rem;font-weight:600;padding:3px 8px;border-radius:100px;border:1px solid rgba(185,125,42,0.22);margin-left:auto;">Serve now</span>
+            </div>
+            <p class="body-text" style="color:#6B5235;font-size:0.9rem;">Divide between warmed bowls. Top with crushed hazelnuts, remaining Parmesan, a crack of black pepper, flat-leaf parsley, and a final drizzle of olive oil. Serve immediately — this dish does not wait.</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHEF'S TIPS -->
+  <section style="padding:60px 0;background-color:#F5EFE0;">
+    <div class="max-w-5xl mx-auto px-6">
+      <div style="background:#1C3A1C;border-radius:24px;padding:48px;">
+        <div class="label-text mb-3" style="color:#A0C490;">Chef's Notes</div>
+        <div class="heading-md mb-10 text-white" style="font-size:1.5rem;">A few things that make the difference</div>
+        <div class="grid md:grid-cols-3 gap-5">
+          <div style="background:rgba(253,251,245,0.07);border-radius:16px;padding:22px;border:1px solid rgba(253,251,245,0.08);">
+            <div style="font-size:1.5rem;margin-bottom:12px;">💧</div>
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#FDFBF5;margin-bottom:8px;">Pasta water is your sauce</div>
+            <p style="font-size:0.85rem;color:rgba(253,251,245,0.65);font-family:'Inter',sans-serif;line-height:1.6;">Don't skip reserving it. The starchy water is what makes the sauce coat the pasta rather than pool at the bottom.</p>
+          </div>
+          <div style="background:rgba(253,251,245,0.07);border-radius:16px;padding:22px;border:1px solid rgba(253,251,245,0.08);">
+            <div style="font-size:1.5rem;margin-bottom:12px;">📅</div>
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#FDFBF5;margin-bottom:8px;">Wild garlic season is short</div>
+            <p style="font-size:0.85rem;color:rgba(253,251,245,0.65);font-family:'Inter',sans-serif;line-height:1.6;">Peak harvest is mid-March to late April. Outside this window, substitute with 2 cloves garlic and a handful of baby spinach.</p>
+          </div>
+          <div style="background:rgba(253,251,245,0.07);border-radius:16px;padding:22px;border:1px solid rgba(253,251,245,0.08);">
+            <div style="font-size:1.5rem;margin-bottom:12px;">🧤</div>
+            <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.95rem;color:#FDFBF5;margin-bottom:8px;">Nettles without fear</div>
+            <p style="font-size:0.85rem;color:rgba(253,251,245,0.65);font-family:'Inter',sans-serif;line-height:1.6;">Use tongs or rubber gloves to handle raw nettles. Once blanched for 30 seconds they are completely safe and taste wonderfully earthy.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROVENANCE — THE FARM -->
+  <section style="padding:80px 0;background-color:#FDFBF5;">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <div class="label-text mb-3" style="color:#2E6B2E;">Where This Comes From</div>
+        <h2 class="heading-lg" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#1C3A1C;">The farm behind this dish</h2>
+      </div>
+      <!-- Split card -->
+      <div style="display:grid;grid-template-columns:1fr 1.5fr;border-radius:24px;overflow:hidden;box-shadow:0 4px 16px rgba(28,58,28,0.08),0 16px 40px rgba(28,58,28,0.08);border:1px solid rgba(28,58,28,0.08);" class="flex flex-col md:grid">
+        <!-- Image half -->
+        <div style="position:relative;min-height:280px;">
+          <img src="https://picsum.photos/seed/organicfarm/480/320" alt="Ashfield Organics" style="width:100%;height:100%;object-fit:cover;display:block;" />
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.55) 0%,transparent 55%);"></div>
+          <div style="position:absolute;bottom:16px;left:16px;">
+            <span style="background:linear-gradient(135deg,#2E6B2E,#4D7C3A);color:#FDFBF5;font-family:'Inter',sans-serif;font-weight:700;font-size:0.7rem;letter-spacing:0.06em;text-transform:uppercase;padding:5px 10px;border-radius:100px;">Partner Spotlight</span>
+          </div>
+        </div>
+        <!-- Text half -->
+        <div style="background:#F5EFE0;padding:36px;display:flex;flex-direction:column;justify-content:center;">
+          <div class="label-text mb-3" style="color:#2E6B2E;">The farm behind this dish</div>
+          <div class="heading-md mb-2" style="font-size:1.5rem;color:#1C3A1C;">Ashfield Organics</div>
+          <div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;font-weight:500;margin-bottom:16px;">Priya &amp; Daniel Nair · Gloucestershire · 22 acres · Certified Organic</div>
+          <p class="body-text mb-4" style="color:#6B5235;font-size:0.9rem;">The wild garlic and nettles in this recipe were hand-picked at Ashfield Organics, 67 miles from your door. Priya and Daniel have farmed this land organically since 2016, supplying 100% of their harvest directly to Greendle subscribers.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px;">
+            <span class="tag">Wild Garlic</span><span class="tag">Certified Organic</span><span class="tag">67 miles away</span>
+          </div>
+          <a href="farm-ashfield.html" style="display:inline-flex;align-items:center;gap:6px;font-family:'Inter',sans-serif;font-weight:600;font-size:0.875rem;color:#2E6B2E;text-decoration:none;transition:gap 0.2s cubic-bezier(0.34,1.56,0.64,1);" onmouseover="this.style.gap='10px'" onmouseout="this.style.gap='6px'">
+            Read the full farm story
+            <svg width="13" height="13" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NUTRITION -->
+  <section style="padding:40px 0;background-color:#F5EFE0;">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="box-card" style="border-radius:16px;padding:28px;">
+        <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+          <div class="label-text" style="color:#2E6B2E;">Nutritional Info · per serving (of 4)</div>
+          <div style="display:flex;gap:24px;flex-wrap:wrap;">
+            <div style="text-align:center;"><div style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.375rem;color:#1C3A1C;letter-spacing:-0.03em;">480</div><div style="font-size:0.7rem;color:#6B5235;font-family:'Inter',sans-serif;">kcal</div></div>
+            <div style="text-align:center;"><div style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.375rem;color:#1C3A1C;letter-spacing:-0.03em;">18g</div><div style="font-size:0.7rem;color:#6B5235;font-family:'Inter',sans-serif;">protein</div></div>
+            <div style="text-align:center;"><div style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.375rem;color:#1C3A1C;letter-spacing:-0.03em;">72g</div><div style="font-size:0.7rem;color:#6B5235;font-family:'Inter',sans-serif;">carbs</div></div>
+            <div style="text-align:center;"><div style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.375rem;color:#1C3A1C;letter-spacing:-0.03em;">14g</div><div style="font-size:0.7rem;color:#6B5235;font-family:'Inter',sans-serif;">fat</div></div>
+            <div style="text-align:center;"><div style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.375rem;color:#1C3A1C;letter-spacing:-0.03em;">4g</div><div style="font-size:0.7rem;color:#6B5235;font-family:'Inter',sans-serif;">fibre</div></div>
+          </div>
+          <div style="font-size:0.75rem;color:rgba(28,58,28,0.40);font-family:'Inter',sans-serif;">Approximate · parmesan included</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MORE RECIPES -->
+  <section style="padding:80px 0;background-color:#FDFBF5;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-10">
+        <div class="label-text mb-4" style="color:#2E6B2E;">Also on This Week's Menu</div>
+        <h2 class="heading-lg" style="font-size:clamp(1.75rem,3.5vw,2.75rem);color:#1C3A1C;">More to cook</h2>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+        <div class="recipe-card">
+          <div style="position:relative;height:160px;"><img src="https://picsum.photos/seed/lentilsoup/360/160" alt="Lentil Soup" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.45) 0%,transparent 55%);"></div><div class="dietary-badge">V</div></div>
+          <div style="padding:16px;"><div class="heading-md mb-1" style="font-size:0.95rem;color:#1C3A1C;">Spiced Red Lentil &amp; Roast Carrot Soup</div><div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-bottom:10px;">25 min · Serves 4</div><a href="recipes.html" style="font-size:0.775rem;color:#2E6B2E;text-decoration:none;font-family:'Inter',sans-serif;font-weight:500;display:flex;align-items:center;gap:4px;" onmouseover="this.style.gap='8px'" onmouseout="this.style.gap='4px'">View recipe <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a></div>
+        </div>
+        <div class="recipe-card">
+          <div style="position:relative;height:160px;"><img src="https://picsum.photos/seed/mushroomrisotto/360/160" alt="Risotto" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.45) 0%,transparent 55%);"></div><div class="dietary-badge" style="background:#7EA86B;">VG</div></div>
+          <div style="padding:16px;"><div class="heading-md mb-1" style="font-size:0.95rem;color:#1C3A1C;">Wild Mushroom &amp; Barley Risotto</div><div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-bottom:10px;">35 min · Serves 3–4</div><a href="recipes.html" style="font-size:0.775rem;color:#2E6B2E;text-decoration:none;font-family:'Inter',sans-serif;font-weight:500;display:flex;align-items:center;gap:4px;" onmouseover="this.style.gap='8px'" onmouseout="this.style.gap='4px'">View recipe <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a></div>
+        </div>
+        <div class="recipe-card">
+          <div style="position:relative;height:160px;"><img src="https://picsum.photos/seed/eggsgreens/360/160" alt="Shakshuka" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.45) 0%,transparent 55%);"></div><div class="dietary-badge">V</div></div>
+          <div style="padding:16px;"><div class="heading-md mb-1" style="font-size:0.95rem;color:#1C3A1C;">Spring Green Shakshuka</div><div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-bottom:10px;">20 min · Serves 2–3</div><a href="recipes.html" style="font-size:0.775rem;color:#2E6B2E;text-decoration:none;font-family:'Inter',sans-serif;font-weight:500;display:flex;align-items:center;gap:4px;" onmouseover="this.style.gap='8px'" onmouseout="this.style.gap='4px'">View recipe <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a></div>
+        </div>
+        <div class="recipe-card">
+          <div style="position:relative;height:160px;"><img src="https://picsum.photos/seed/beetsteak/360/160" alt="Beetroot Tart" style="width:100%;height:100%;object-fit:cover;" /><div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.45) 0%,transparent 55%);"></div><div class="dietary-badge">V</div></div>
+          <div style="padding:16px;"><div class="heading-md mb-1" style="font-size:0.95rem;color:#1C3A1C;">Beetroot Tarte Tatin with Goat's Cheese</div><div style="font-size:0.75rem;color:#6B5235;font-family:'Inter',sans-serif;margin-bottom:10px;">45 min · Serves 4</div><a href="recipes.html" style="font-size:0.775rem;color:#2E6B2E;text-decoration:none;font-family:'Inter',sans-serif;font-weight:500;display:flex;align-items:center;gap:4px;" onmouseover="this.style.gap='8px'" onmouseout="this.style.gap='4px'">View recipe <svg width="10" height="10" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 5h6M5 2l3 3-3 3"/></svg></a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" style="padding:80px 0;">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+      <div class="label-text mb-4" style="color:#A0C490;">Ready to Cook This?</div>
+      <h2 class="heading-lg text-white mb-5" style="font-size:clamp(2rem,4vw,3.25rem);">Get this recipe in<br/>your next box.</h2>
+      <p class="body-text mb-10" style="color:rgba(253,251,245,0.75);max-width:460px;margin:0 auto 40px;">The Grove Box includes this recipe plus three others, all with named-farm ingredients delivered fresh to your door.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;">
+        <a href="index.html#boxes" class="btn-primary" style="font-size:1rem;padding:15px 30px;">Choose Your Box <svg width="15" height="15" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7h10M8 3l4 4-4 4"/></svg></a>
+        <a href="recipes.html" class="btn-ghost-white" style="font-size:1rem;padding:14px 30px;">See All Recipes</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="padding:64px 0 40px;">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-10 pb-12" style="border-bottom:1px solid rgba(253,251,245,0.08);">
+        <div class="md:col-span-2">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;">
+            <div style="width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,#2E6B2E,#4D7C3A);display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🌿</div>
+            <span style="font-family:'Raleway',sans-serif;font-weight:800;font-size:1.25rem;color:#FDFBF5;letter-spacing:-0.02em;">Greendle</span>
+          </div>
+          <p class="body-text mb-6" style="color:rgba(253,251,245,0.50);font-size:0.9rem;max-width:280px;">Farm-to-door meal kits and groceries. Zero waste. Locally sourced. Carbon-neutral delivery.</p>
+          <div style="display:flex;gap:12px;">
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(253,251,245,0.08);border:1px solid rgba(253,251,245,0.10);display:flex;align-items:center;justify-content:center;font-size:0.875rem;text-decoration:none;" onmouseover="this.style.background='rgba(253,251,245,0.14)'" onmouseout="this.style.background='rgba(253,251,245,0.08)'">📘</a>
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(253,251,245,0.08);border:1px solid rgba(253,251,245,0.10);display:flex;align-items:center;justify-content:center;font-size:0.875rem;text-decoration:none;" onmouseover="this.style.background='rgba(253,251,245,0.14)'" onmouseout="this.style.background='rgba(253,251,245,0.08)'">📸</a>
+            <a href="#" style="width:36px;height:36px;border-radius:8px;background:rgba(253,251,245,0.08);border:1px solid rgba(253,251,245,0.10);display:flex;align-items:center;justify-content:center;font-size:0.875rem;text-decoration:none;" onmouseover="this.style.background='rgba(253,251,245,0.14)'" onmouseout="this.style.background='rgba(253,251,245,0.08)'">🐦</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.875rem;color:#FDFBF5;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase;">Company</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">About Us</a></li>
+            <li><a href="farms.html" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Our Farms</a></li>
+            <li><a href="recipes.html" style="font-size:0.875rem;color:#A0C490;text-decoration:none;font-family:'Inter',sans-serif;font-weight:500;">This Week's Menu</a></li>
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Impact Report</a></li>
+          </ul>
+        </div>
+        <div>
+          <div style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.875rem;color:#FDFBF5;margin-bottom:16px;letter-spacing:0.04em;text-transform:uppercase;">Support</div>
+          <ul style="list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px;">
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Help Centre</a></li>
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Delivery Areas</a></li>
+            <li><a href="#" style="font-size:0.875rem;color:rgba(253,251,245,0.50);text-decoration:none;font-family:'Inter',sans-serif;" onmouseover="this.style.color='rgba(253,251,245,0.90)'" onmouseout="this.style.color='rgba(253,251,245,0.50)'">Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:28px;">
+        <p style="font-size:0.8rem;color:rgba(253,251,245,0.30);font-family:'Inter',sans-serif;">© 2026 Greendle Ltd. Registered in England &amp; Wales. B-Corp Certified.</p>
+        <span style="font-size:0.8rem;color:rgba(253,251,245,0.30);font-family:'Inter',sans-serif;">🌱 Carbon neutral since 2023</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function setServes(btn){document.querySelectorAll('.serves-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active')}
+  </script>
+
+</body>
+</html>
