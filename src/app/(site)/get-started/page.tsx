@@ -47,12 +47,18 @@ function GetStartedForm() {
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
     setSubmitting(true)
-    const data = new FormData(e.currentTarget)
+    const formEl = e.currentTarget
+    const data = new FormData(formEl)
+    const json: Record<string, string> = {}
+    data.forEach((v, k) => { json[k] = v.toString() })
     try {
       await fetch('https://submit-form.com/RYANPrRzp', {
         method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: data,
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify(json),
       })
     } catch {
       // best-effort — show success regardless
