@@ -47,9 +47,13 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   try {
     const recipe: RecipeDetail = await client.fetch(recipeBySlugQuery, { slug })
     if (!recipe) return {}
+    const description = recipe.seoDescription || recipe.description || ''
+    const ogImage = recipe.heroImage ? urlFor(recipe.heroImage).width(1200).height(630).url() : '/og-image.png'
     return {
       title: recipe.title,
-      description: recipe.seoDescription || recipe.description,
+      description,
+      openGraph: { title: recipe.title, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+      twitter: { card: 'summary_large_image', title: recipe.title, description, images: [ogImage] },
     }
   } catch {
     return {}

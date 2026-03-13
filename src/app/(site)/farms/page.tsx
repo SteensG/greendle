@@ -6,7 +6,13 @@ import { ScrollReveal } from '@/components/ScrollReveal'
 
 export const metadata: Metadata = {
   title: 'Our Farms',
-  description: 'Meet the 180+ certified organic farms behind every Greendle box. Locally sourced, sustainably grown, verified by us.',
+  description: 'Meet the certified organic farms behind every Greendle box. Locally sourced, sustainably grown, verified by us.',
+  openGraph: {
+    title: 'Our Farms — Greendle',
+    description: 'Meet the certified organic farms behind every Greendle box.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 // Revalidate every hour

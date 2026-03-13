@@ -43,9 +43,13 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   try {
     const farm: FarmDetail = await client.fetch(farmBySlugQuery, { slug })
     if (!farm) return {}
+    const description = farm.seoDescription || farm.tagline
+    const ogImage = farm.heroImage ? urlFor(farm.heroImage).width(1200).height(630).url() : '/og-image.png'
     return {
       title: farm.name,
-      description: farm.seoDescription || farm.tagline,
+      description,
+      openGraph: { title: farm.name, description, images: [{ url: ogImage, width: 1200, height: 630 }] },
+      twitter: { card: 'summary_large_image', title: farm.name, description, images: [ogImage] },
     }
   } catch {
     return {}

@@ -13,15 +13,18 @@ export function Nav() {
     const nav = navRef.current
     const logoText = logoTextRef.current
     if (!nav || !logoText) return
+
+    const isDetailPage = pathname.split('/').filter(Boolean).length >= 2
+
     const onScroll = () => {
-      const scrolled = window.scrollY > 40
+      const scrolled = isDetailPage || window.scrollY > 40
       nav.classList.toggle('scrolled', scrolled)
       logoText.style.color = scrolled ? '#1C3A1C' : '#FDFBF5'
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     onScroll()
     return () => window.removeEventListener('scroll', onScroll)
-  }, [])
+  }, [pathname])
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(href + '/')
 

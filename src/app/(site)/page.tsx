@@ -3,8 +3,14 @@ import Link from 'next/link'
 import { ScrollReveal } from '@/components/ScrollReveal'
 
 export const metadata: Metadata = {
-  title: 'Greendle — Farm to Door, Guilt-Free',
-  description: 'Seasonal meal kits & groceries from certified organic farms, delivered carbon-neutral to your door.',
+  title: 'Farm to Door, Guilt-Free',
+  description: 'Seasonal meal kits and groceries from certified organic farms, delivered carbon-neutral to your door.',
+  openGraph: {
+    title: 'Greendle — Farm to Door, Guilt-Free',
+    description: 'Seasonal meal kits and groceries from certified organic farms, delivered carbon-neutral to your door.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630 }],
+  },
+  twitter: { card: 'summary_large_image' },
 }
 
 export default function HomePage() {
