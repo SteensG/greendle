@@ -42,6 +42,24 @@ function GetStartedForm() {
     BOXES.find(b => b.id === initialBox) ? initialBox : 'grove'
   )
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    setSubmitting(true)
+    const data = new FormData(e.currentTarget)
+    try {
+      await fetch('https://submit-form.com/RYANPrRzp', {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: data,
+      })
+    } catch {
+      // best-effort — show success regardless
+    }
+    setSubmitting(false)
+    setSubmitted(true)
+  }
 
   if (submitted) {
     return (
@@ -312,9 +330,7 @@ function GetStartedForm() {
 
         {/* Form */}
         <form
-          action="https://submit-form.com/RYANPrRzp"
-          method="POST"
-          onSubmit={() => setSubmitted(true)}
+          onSubmit={handleSubmit}
           style={{
             maxWidth: 560,
             margin: '0 auto',
@@ -325,7 +341,6 @@ function GetStartedForm() {
             boxShadow: '0 4px 16px rgba(28,58,28,0.06), 0 16px 48px rgba(28,58,28,0.08)',
           }}
         >
-          <input type="hidden" name="_redirect" value="false" />
           <input type="hidden" name="box" value={box.name} />
 
           <h2
@@ -394,8 +409,8 @@ function GetStartedForm() {
             </select>
           </div>
 
-          <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '16px 24px' }}>
-            Reserve my {box.name}
+          <button type="submit" className="btn-primary" disabled={submitting} style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '16px 24px', opacity: submitting ? 0.7 : 1 }}>
+            {submitting ? 'Sending…' : `Reserve my ${box.name}`}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>
