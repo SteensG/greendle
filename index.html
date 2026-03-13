@@ -95,7 +95,7 @@
     }
     .heading-md {
       font-family: 'Raleway', sans-serif;
-      font-weight: 700;
+      font-weight: 900;
       letter-spacing: -0.02em;
       line-height: 1.2;
     }
@@ -120,7 +120,7 @@
       background-color: #2E6B2E;
       color: #FDFBF5;
       font-family: 'Raleway', sans-serif;
-      font-weight: 700;
+      font-weight: 900;
       letter-spacing: -0.01em;
       padding: 14px 28px;
       border-radius: 100px;
@@ -150,7 +150,7 @@
       background-color: transparent;
       color: #1C3A1C;
       font-family: 'Raleway', sans-serif;
-      font-weight: 700;
+      font-weight: 900;
       letter-spacing: -0.01em;
       padding: 13px 27px;
       border-radius: 100px;
@@ -179,7 +179,7 @@
       background-color: rgba(253,251,245,0.15);
       color: #FDFBF5;
       font-family: 'Raleway', sans-serif;
-      font-weight: 700;
+      font-weight: 900;
       letter-spacing: -0.01em;
       padding: 13px 27px;
       border-radius: 100px;
@@ -472,6 +472,28 @@
     @media (max-width: 768px) {
       .hero-content { padding-top: 100px; }
     }
+
+    /* ── Scroll Reveal ── */
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    [data-reveal].is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    [data-delay="100"] { transition-delay: 0.10s; }
+    [data-delay="150"] { transition-delay: 0.15s; }
+    [data-delay="200"] { transition-delay: 0.20s; }
+    [data-delay="300"] { transition-delay: 0.30s; }
+    [data-delay="400"] { transition-delay: 0.40s; }
+    [data-delay="500"] { transition-delay: 0.50s; }
+
+    @media (prefers-reduced-motion: reduce) {
+      [data-reveal] { opacity: 1; transform: none; transition: none; }
+    }
   </style>
 </head>
 <body>
@@ -601,19 +623,19 @@
   <section class="stats-bar py-10">
     <div class="max-w-7xl mx-auto px-6">
       <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-        <div class="text-center">
+        <div class="text-center" data-reveal>
           <div class="heading-lg" style="font-size:2.25rem;color:#2E6B2E;">180+</div>
           <div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;">Local Farm Partners</div>
         </div>
-        <div class="text-center">
+        <div class="text-center" data-reveal data-delay="150">
           <div class="heading-lg" style="font-size:2.25rem;color:#2E6B2E;">840k</div>
           <div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;">Meals Delivered</div>
         </div>
-        <div class="text-center">
+        <div class="text-center" data-reveal data-delay="300">
           <div class="heading-lg" style="font-size:2.25rem;color:#2E6B2E;">0%</div>
           <div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;">Plastic Packaging</div>
         </div>
-        <div class="text-center">
+        <div class="text-center" data-reveal data-delay="400">
           <div class="heading-lg" style="font-size:2.25rem;color:#2E6B2E;">12t</div>
           <div style="font-size:0.825rem;color:#6B5235;font-family:'Inter',sans-serif;margin-top:4px;">CO₂ Offset Monthly</div>
         </div>
@@ -627,7 +649,7 @@
   <section id="mission" style="padding: 100px 0; background-color: #F5EFE0;">
     <div class="max-w-7xl mx-auto px-6">
 
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-reveal>
         <div class="label-text mb-4" style="color:#2E6B2E;">Our Promise</div>
         <h2 class="heading-lg" style="font-size:clamp(2rem,4vw,3.25rem);color:#1C3A1C;max-width:560px;margin:0 auto;">
           Good for you.<br/>Good for the planet.
@@ -639,7 +661,7 @@
 
       <div class="grid md:grid-cols-3 gap-6">
         <!-- Pillar 1 -->
-        <div class="pillar-card">
+        <div class="pillar-card" data-reveal>
           <div class="pillar-icon" style="background:rgba(46,107,46,0.10);">🌾</div>
           <div class="heading-md mb-3" style="font-size:1.375rem;color:#1C3A1C;">Locally Sourced</div>
           <p class="body-text" style="color:#6B5235;font-size:0.9375rem;">
@@ -656,7 +678,7 @@
         </div>
 
         <!-- Pillar 2 -->
-        <div class="pillar-card" style="background:linear-gradient(145deg,#2E6B2E,#1C3A1C);border-color:rgba(255,255,255,0.08);">
+        <div class="pillar-card" data-reveal data-delay="150" style="background:linear-gradient(145deg,#2E6B2E,#1C3A1C);border-color:rgba(255,255,255,0.08);">
           <div class="pillar-icon" style="background:rgba(253,251,245,0.12);">♻️</div>
           <div class="heading-md mb-3" style="font-size:1.375rem;color:#FDFBF5;">Zero-Waste Packaging</div>
           <p class="body-text" style="color:rgba(253,251,245,0.75);font-size:0.9375rem;">
@@ -671,7 +693,7 @@
         </div>
 
         <!-- Pillar 3 -->
-        <div class="pillar-card">
+        <div class="pillar-card" data-reveal data-delay="300">
           <div class="pillar-icon" style="background:rgba(185,125,42,0.12);">🚲</div>
           <div class="heading-md mb-3" style="font-size:1.375rem;color:#1C3A1C;">Carbon-Neutral Delivery</div>
           <p class="body-text" style="color:#6B5235;font-size:0.9375rem;">
@@ -696,7 +718,7 @@
   <section id="how-it-works" style="padding: 100px 0; background-color: #FDFBF5;">
     <div class="max-w-7xl mx-auto px-6">
 
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-reveal>
         <div class="label-text mb-4" style="color:#2E6B2E;">Simple Process</div>
         <h2 class="heading-lg" style="font-size:clamp(2rem,4vw,3.25rem);color:#1C3A1C;">
           From field to fork<br/>in three steps
@@ -708,7 +730,7 @@
         <div class="hidden md:block absolute top-12 left-1/3 right-1/3 h-px" style="background:linear-gradient(90deg,transparent,rgba(46,107,46,0.20),transparent);"></div>
 
         <!-- Step 1 -->
-        <div style="position:relative;padding-top:24px;">
+        <div data-reveal style="position:relative;padding-top:24px;">
           <span class="step-number">01</span>
           <div style="
             width:56px;height:56px;border-radius:16px;
@@ -725,7 +747,7 @@
         </div>
 
         <!-- Step 2 -->
-        <div style="position:relative;padding-top:24px;">
+        <div data-reveal data-delay="200" style="position:relative;padding-top:24px;">
           <span class="step-number">02</span>
           <div style="
             width:56px;height:56px;border-radius:16px;
@@ -742,7 +764,7 @@
         </div>
 
         <!-- Step 3 -->
-        <div style="position:relative;padding-top:24px;">
+        <div data-reveal data-delay="400" style="position:relative;padding-top:24px;">
           <span class="step-number">03</span>
           <div style="
             width:56px;height:56px;border-radius:16px;
@@ -767,7 +789,7 @@
   <section id="boxes" style="padding: 100px 0; background-color: #F5EFE0;">
     <div class="max-w-7xl mx-auto px-6">
 
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-reveal>
         <div class="label-text mb-4" style="color:#2E6B2E;">What's In The Box</div>
         <h2 class="heading-lg" style="font-size:clamp(2rem,4vw,3.25rem);color:#1C3A1C;max-width:520px;margin:0 auto;">
           A box for every kind of kitchen
@@ -780,7 +802,7 @@
       <div class="grid md:grid-cols-3 gap-6 items-start">
 
         <!-- Seed Box -->
-        <div class="box-card">
+        <div class="box-card" data-reveal>
           <div style="position:relative;overflow:hidden;height:220px;">
             <img src="https://placehold.co/480x220/C4D9B8/2E6B2E?text=The+Seed+Box" alt="Seed Box" style="width:100%;height:100%;object-fit:cover;" />
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.55) 0%,transparent 60%);"></div>
@@ -812,7 +834,7 @@
         </div>
 
         <!-- Grove Box (Featured) -->
-        <div class="box-card featured" style="margin-top:-12px;">
+        <div class="box-card featured" data-reveal data-delay="150" style="margin-top:-12px;">
           <div style="background:linear-gradient(90deg,#2E6B2E,#4D7C3A);padding:10px 20px;display:flex;align-items:center;justify-content:center;gap:8px;">
             <span style="font-size:0.75rem;">✦</span>
             <span style="font-family:'Raleway',sans-serif;font-weight:700;font-size:0.8rem;color:#FDFBF5;letter-spacing:0.06em;text-transform:uppercase;">Most Popular</span>
@@ -850,7 +872,7 @@
         </div>
 
         <!-- Harvest Box -->
-        <div class="box-card">
+        <div class="box-card" data-reveal data-delay="300">
           <div style="position:relative;overflow:hidden;height:220px;">
             <img src="https://placehold.co/480x220/4D7C3A/F5EFE0?text=The+Harvest+Box" alt="Harvest Box" style="width:100%;height:100%;object-fit:cover;" />
             <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(28,58,28,0.55) 0%,transparent 60%);"></div>
@@ -895,7 +917,7 @@
   <section id="reviews" style="padding: 100px 0; background-color: #FDFBF5;">
     <div class="max-w-7xl mx-auto px-6">
 
-      <div class="text-center mb-16">
+      <div class="text-center mb-16" data-reveal>
         <div class="label-text mb-4" style="color:#2E6B2E;">What People Say</div>
         <h2 class="heading-lg" style="font-size:clamp(2rem,4vw,3.25rem);color:#1C3A1C;">
           Real kitchens.<br/>Real stories.
@@ -903,7 +925,7 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6">
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-reveal>
           <div style="display:flex;gap:2px;margin-bottom:16px;font-size:0.9rem;">⭐⭐⭐⭐⭐</div>
           <p class="body-text mb-6" style="color:#3D2E1A;font-size:0.9375rem;font-style:italic;">
             "Switching to Greendle genuinely changed how our family thinks about food. We actually know which farm our carrots came from. The packaging goes straight in our compost — zero guilt."
@@ -917,7 +939,7 @@
           </div>
         </div>
 
-        <div class="testimonial-card" style="background:linear-gradient(145deg,#1C3A1C,#265426);border-color:rgba(255,255,255,0.08);">
+        <div class="testimonial-card" data-reveal data-delay="150" style="background:linear-gradient(145deg,#1C3A1C,#265426);border-color:rgba(255,255,255,0.08);">
           <div style="display:flex;gap:2px;margin-bottom:16px;font-size:0.9rem;">⭐⭐⭐⭐⭐</div>
           <p class="body-text mb-6" style="color:rgba(253,251,245,0.82);font-size:0.9375rem;font-style:italic;">
             "I've tried every meal kit on the market. Greendle is the only one where the food actually tastes like it was picked this morning — because it was. Plus the recipes are genuinely exciting."
@@ -931,7 +953,7 @@
           </div>
         </div>
 
-        <div class="testimonial-card">
+        <div class="testimonial-card" data-reveal data-delay="300">
           <div style="display:flex;gap:2px;margin-bottom:16px;font-size:0.9rem;">⭐⭐⭐⭐⭐</div>
           <p class="body-text mb-6" style="color:#3D2E1A;font-size:0.9375rem;font-style:italic;">
             "The carbon-neutral delivery was the thing that sealed it for me. My kids can see the bike courier arrive. They're proud of the choice we've made as a family. That matters."
@@ -965,7 +987,7 @@
        CTA / NEWSLETTER SECTION
   ═══════════════════════════════════════ -->
   <section class="cta-section" style="padding: 100px 0;">
-    <div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+    <div class="max-w-4xl mx-auto px-6 text-center relative z-10" data-reveal>
       <div class="badge mb-8" style="margin:0 auto 32px;display:inline-flex;">
         <span class="badge-dot"></span>
         Limited spots available this week
@@ -1090,6 +1112,20 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    /* ── Scroll Reveal Observer ── */
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('[data-reveal]').forEach(el => revealObserver.observe(el));
+  </script>
 
 </body>
 </html>
