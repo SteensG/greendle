@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
 import '../styles/globals.css'
-import { Nav } from '@/components/Nav'
-import { Footer } from '@/components/Footer'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://greendle.vercel.app'),
@@ -16,11 +14,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
-        <Nav />
-        {children}
-        <Footer />
-      </body>
+      <body>{children}</body>
     </html>
   )
 }
