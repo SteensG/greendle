@@ -765,13 +765,13 @@ export default function HomePage() {
                     ≈ £5.67 per meal
                   </div>
                 </div>
-                <a
-                  href="#"
+                <Link
+                  href="/get-started?box=seed"
                   className="btn-secondary"
                   style={{ width: '100%', justifyContent: 'center', fontSize: '0.9rem' }}
                 >
                   Choose Seed Box
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -899,13 +899,13 @@ export default function HomePage() {
                     ≈ £3.10 per meal
                   </div>
                 </div>
-                <a
-                  href="#"
+                <Link
+                  href="/get-started?box=grove"
                   className="btn-primary"
                   style={{ width: '100%', justifyContent: 'center', fontSize: '0.9rem' }}
                 >
                   Choose Grove Box
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -1002,13 +1002,13 @@ export default function HomePage() {
                     ≈ £2.33 per meal
                   </div>
                 </div>
-                <a
-                  href="#"
+                <Link
+                  href="/get-started?box=harvest"
                   className="btn-secondary"
                   style={{ width: '100%', justifyContent: 'center', fontSize: '0.9rem' }}
                 >
                   Choose Harvest Box
-                </a>
+                </Link>
               </div>
             </div>
           </div>
