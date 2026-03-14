@@ -41,31 +41,7 @@ function GetStartedForm() {
   const [selectedBox, setSelectedBox] = useState(
     BOXES.find(b => b.id === initialBox) ? initialBox : 'grove'
   )
-  const [submitted, setSubmitted] = useState(false)
-  const [submitting, setSubmitting] = useState(false)
-
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
-    setSubmitting(true)
-    const formEl = e.currentTarget
-    const data = new FormData(formEl)
-    const json: Record<string, string> = {}
-    data.forEach((v, k) => { json[k] = v.toString() })
-    try {
-      await fetch('https://submit-form.com/RYANPrRzp', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify(json),
-      })
-    } catch {
-      // best-effort — show success regardless
-    }
-    setSubmitting(false)
-    setSubmitted(true)
-  }
+  const submitted = searchParams.get('success') === '1'
 
   if (submitted) {
     return (
@@ -336,7 +312,8 @@ function GetStartedForm() {
 
         {/* Form */}
         <form
-          onSubmit={handleSubmit}
+          action="https://submit-form.com/RYANPrRzp"
+          method="POST"
           style={{
             maxWidth: 560,
             margin: '0 auto',
@@ -348,6 +325,7 @@ function GetStartedForm() {
           }}
         >
           <input type="hidden" name="box" value={box.name} />
+          <input type="hidden" name="_redirect" value="https://greendle.vercel.app/get-started?success=1" />
 
           <h2
             className="heading-md"
@@ -415,8 +393,8 @@ function GetStartedForm() {
             </select>
           </div>
 
-          <button type="submit" className="btn-primary" disabled={submitting} style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '16px 24px', opacity: submitting ? 0.7 : 1 }}>
-            {submitting ? 'Sending…' : `Reserve my ${box.name}`}
+          <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', fontSize: '1rem', padding: '16px 24px' }}>
+            Reserve my {box.name}
             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 8h10M9 4l4 4-4 4" />
             </svg>
